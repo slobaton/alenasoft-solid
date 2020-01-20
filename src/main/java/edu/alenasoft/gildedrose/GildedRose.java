@@ -33,8 +33,13 @@ public class GildedRose {
       if (improvesOverTime(item)) return new ImproveOverTimeUpdater();
       if (isLegendary(item)) return new LegendaryUpdater();
       if (isBackstagePasses(item)) return new BackstagePassesUpdater();
+      if (isConjured(item)) return new ConjuredUpdater();
 
       return new CommonUpdater();
+  }
+
+  private static boolean isConjured(Item item) {
+    return item.getName().contains("Conjured");
   }
 
   private static boolean isBackstagePasses(Item item) {
